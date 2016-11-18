@@ -1,0 +1,1 @@
+json.array! @admin_averages, partial: 'admin_averages/admin_average', as: :admin_average

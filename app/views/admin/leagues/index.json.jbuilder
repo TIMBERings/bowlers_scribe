@@ -1,0 +1,1 @@
+json.array! @admin_leagues, partial: 'admin_leagues/admin_league', as: :admin_league

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :games
+  resources :averages
   resources :teams
   resources :matches
   resources :weeks
+  resources :leagues
+  resources :seasons
+
   devise_for :users
 
   root to: 'home#index'

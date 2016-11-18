@@ -1,0 +1,1 @@
+json.array! @admin_seasons, partial: 'admin_seasons/admin_season', as: :admin_season

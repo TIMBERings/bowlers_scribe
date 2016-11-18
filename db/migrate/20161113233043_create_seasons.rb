@@ -15,12 +15,5 @@ class CreateSeasons < ActiveRecord::Migration[5.0]
       t.string :starts_at, nullable: false
       t.timestamps
     end
-
-    create_table :members_seasons, id: false do |t|
-      t.integer :member_id, index: true
-      t.integer :season_id, index: true
-      t.integer :average
-      t.timestamps
-    end
   end
 end

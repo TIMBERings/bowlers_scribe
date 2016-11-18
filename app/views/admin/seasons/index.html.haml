@@ -1,0 +1,19 @@
+%h1 Listing admin_seasons
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_seasons.each do |admin_season|
+      %tr
+        %td= link_to 'Show', admin_season
+        %td= link_to 'Edit', edit_admin_season_path(admin_season)
+        %td= link_to 'Destroy', admin_season, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Season', new_admin_season_path

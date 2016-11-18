@@ -1,0 +1,25 @@
+%h1 Listing averages
+
+%table
+  %thead
+    %tr
+      %th Average
+      %th Season
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @averages.each do |average|
+      %tr
+        %td= average.average
+        %td= average.season
+        %td= average.member
+        %td= link_to 'Show', average
+        %td= link_to 'Edit', edit_average_path(average)
+        %td= link_to 'Destroy', average, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Average', new_average_path

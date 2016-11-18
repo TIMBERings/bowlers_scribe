@@ -1,0 +1,1 @@
+json.array! @admin_weeks, partial: 'admin_weeks/admin_week', as: :admin_week

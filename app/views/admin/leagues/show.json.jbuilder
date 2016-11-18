@@ -1,0 +1,1 @@
+json.partial! "admin_leagues/admin_league", admin_league: @admin_league

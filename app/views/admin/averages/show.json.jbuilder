@@ -1,0 +1,1 @@
+json.partial! "admin_averages/admin_average", admin_average: @admin_average

@@ -1,0 +1,19 @@
+%h1 Listing admin_leagues
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @admin_leagues.each do |admin_league|
+      %tr
+        %td= link_to 'Show', admin_league
+        %td= link_to 'Edit', edit_admin_league_path(admin_league)
+        %td= link_to 'Destroy', admin_league, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New League', new_admin_league_path

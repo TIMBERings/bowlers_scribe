@@ -1,0 +1,1 @@
+json.partial! "admin_weeks/admin_week", admin_week: @admin_week

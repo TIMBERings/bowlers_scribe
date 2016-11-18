@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Average:
+  = @average.average
+%p
+  %b Season:
+  = @average.season
+%p
+  %b Member:
+  = @average.member
+
+= link_to 'Edit', edit_average_path(@average)
+\|
+= link_to 'Back', averages_path
