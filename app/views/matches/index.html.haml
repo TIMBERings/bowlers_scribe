@@ -1,0 +1,37 @@
+%h1 Listing matches
+
+%table
+  %thead
+    %tr
+      %th Left team
+      %th Right team
+      %th Left lane
+      %th Right lane
+      %th Left payment
+      %th Right payment
+      %th Left points on
+      %th Right points won
+      %th Week
+      %th
+      %th
+      %th
+
+  %tbody
+    - @matches.each do |match|
+      %tr
+        %td= match.left_team
+        %td= match.right_team
+        %td= match.left_lane
+        %td= match.right_lane
+        %td= match.left_payment
+        %td= match.right_payment
+        %td= match.left_points_on
+        %td= match.right_points_won
+        %td= match.week
+        %td= link_to 'Show', match
+        %td= link_to 'Edit', edit_match_path(match)
+        %td= link_to 'Destroy', match, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Match', new_match_path

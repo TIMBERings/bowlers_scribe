@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Left team:
+  = @match.left_team
+%p
+  %b Right team:
+  = @match.right_team
+%p
+  %b Left lane:
+  = @match.left_lane
+%p
+  %b Right lane:
+  = @match.right_lane
+%p
+  %b Left payment:
+  = @match.left_payment
+%p
+  %b Right payment:
+  = @match.right_payment
+%p
+  %b Left points on:
+  = @match.left_points_on
+%p
+  %b Right points won:
+  = @match.right_points_won
+%p
+  %b Week:
+  = @match.week
+
+= link_to 'Edit', edit_match_path(@match)
+\|
+= link_to 'Back', matches_path

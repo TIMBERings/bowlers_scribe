@@ -1,0 +1,25 @@
+%h1 Listing weeks
+
+%table
+  %thead
+    %tr
+      %th Date
+      %th Sequence
+      %th Season
+      %th
+      %th
+      %th
+
+  %tbody
+    - @weeks.each do |week|
+      %tr
+        %td= week.date
+        %td= week.sequence
+        %td= week.season
+        %td= link_to 'Show', week
+        %td= link_to 'Edit', edit_week_path(week)
+        %td= link_to 'Destroy', week, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Week', new_week_path

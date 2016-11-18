@@ -1,0 +1,33 @@
+%h1 Listing seasons
+
+%table
+  %thead
+    %tr
+      %th League
+      %th Year
+      %th Day
+      %th Start date
+      %th Number of weeks
+      %th Roll off weeks
+      %th Dates off
+      %th
+      %th
+      %th
+
+  %tbody
+    - @seasons.each do |season|
+      %tr
+        %td= season.league
+        %td= season.year
+        %td= season.day
+        %td= season.start_date
+        %td= season.number_of_weeks
+        %td= season.roll_off_weeks
+        %td= season.dates_off
+        %td= link_to 'Show', season
+        %td= link_to 'Edit', edit_season_path(season)
+        %td= link_to 'Destroy', season, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Season', new_season_path

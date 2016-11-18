@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b League:
+  = @season.league
+%p
+  %b Year:
+  = @season.year
+%p
+  %b Day:
+  = @season.day
+%p
+  %b Start date:
+  = @season.start_date
+%p
+  %b Number of weeks:
+  = @season.number_of_weeks
+%p
+  %b Roll off weeks:
+  = @season.roll_off_weeks
+%p
+  %b Dates off:
+  = @season.dates_off
+
+= link_to 'Edit', edit_season_path(@season)
+\|
+= link_to 'Back', seasons_path

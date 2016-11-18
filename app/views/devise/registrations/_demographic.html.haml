@@ -1,0 +1,18 @@
+%hr
+.row
+  .col-sm-6
+    .form-group
+      = f.label :first_name
+      = f.text_field :first_name, class: "form-control"
+  .col-sm-6
+    .form-group
+      = f.label :last_name
+      = f.text_field :last_name, class: "form-control"
+  .col-sm-6
+    .form-group
+      = f.label :birth_date
+      = f.date_field :birth_date, class: "form-control"
+  .col-sm-6
+    .form-group
+      = f.label :usbc_number, 'USBC number'
+      = f.text_field :usbc_number, class: "form-control"

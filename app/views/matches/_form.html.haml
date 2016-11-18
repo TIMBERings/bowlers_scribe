@@ -1,0 +1,37 @@
+= form_for @match do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :left_team
+    = f.number_field :left_team
+  .field
+    = f.label :right_team
+    = f.number_field :right_team
+  .field
+    = f.label :left_lane
+    = f.number_field :left_lane
+  .field
+    = f.label :right_lane
+    = f.number_field :right_lane
+  .field
+    = f.label :left_payment
+    = f.number_field :left_payment
+  .field
+    = f.label :right_payment
+    = f.number_field :right_payment
+  .field
+    = f.label :left_points_on
+    = f.number_field :left_points_on
+  .field
+    = f.label :right_points_won
+    = f.number_field :right_points_won
+  .field
+    = f.label :week
+    = f.text_field :week
+  .actions
+    = f.submit 'Save'
