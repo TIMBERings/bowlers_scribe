@@ -11,4 +11,8 @@ class User < ApplicationRecord
 
   has_many :teams, foreign_key: :captain_id
   has_and_belongs_to_many :teams, class_name: 'Team', :join_table => :members_teams, foreign_key: :member_id
+
+  has_many :averages, foreign_key: :member_id
+  has_many :games, foreign_key: :member_id
+
 end

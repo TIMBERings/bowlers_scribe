@@ -4,8 +4,8 @@ class CreateAverages < ActiveRecord::Migration[5.0]
       t.float :average
       t.integer :number_of_games, null: false, default: 0
       t.integer :total_pinfall, null: false, default: 0
-      t.references :season, foreign_key: true, index: true
-      t.references :member, foreign_key: true, index: true
+      t.integer :season_id, index: true
+      t.integer :member_id, index: true
 
       t.timestamps
     end
