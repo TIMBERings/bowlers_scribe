@@ -14,7 +14,7 @@ module ApplicationHelper
     end
   end
 
-  def admin_header?
+  def admin_dashboard?
     controller_path.include? 'admin/'
   end
 end

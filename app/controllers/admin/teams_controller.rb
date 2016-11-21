@@ -4,7 +4,7 @@ class Admin::TeamsController < Admin::ApplicationController
   # GET /admin/teams
   # GET /admin/teams.json
   def index
-    @admin_teams = Admin::Team.all
+    @admin_teams = Team.all
   end
 
   # GET /admin/teams/1
@@ -14,7 +14,7 @@ class Admin::TeamsController < Admin::ApplicationController
 
   # GET /admin/teams/new
   def new
-    @admin_team = Admin::Team.new
+    @admin_team = Team.new
   end
 
   # GET /admin/teams/1/edit
@@ -24,7 +24,7 @@ class Admin::TeamsController < Admin::ApplicationController
   # POST /admin/teams
   # POST /admin/teams.json
   def create
-    @admin_team = Admin::Team.new(admin_team_params)
+    @admin_team = Team.new(admin_team_params)
 
     respond_to do |format|
       if @admin_team.save
@@ -64,7 +64,7 @@ class Admin::TeamsController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_team
-      @admin_team = Admin::Team.find(params[:id])
+      @admin_team = Team.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

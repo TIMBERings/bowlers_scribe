@@ -4,7 +4,7 @@ class Admin::GamesController < Admin::ApplicationController
   # GET /admin/games
   # GET /admin/games.json
   def index
-    @admin_games = Admin::Game.all
+    @admin_games = Game.all
   end
 
   # GET /admin/games/1
@@ -14,7 +14,7 @@ class Admin::GamesController < Admin::ApplicationController
 
   # GET /admin/games/new
   def new
-    @admin_game = Admin::Game.new
+    @admin_game = Game.new
   end
 
   # GET /admin/games/1/edit
@@ -24,7 +24,7 @@ class Admin::GamesController < Admin::ApplicationController
   # POST /admin/games
   # POST /admin/games.json
   def create
-    @admin_game = Admin::Game.new(admin_game_params)
+    @admin_game = Game.new(admin_game_params)
 
     respond_to do |format|
       if @admin_game.save
@@ -64,7 +64,7 @@ class Admin::GamesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_game
-      @admin_game = Admin::Game.find(params[:id])
+      @admin_game = Game.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

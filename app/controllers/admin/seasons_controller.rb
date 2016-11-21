@@ -4,17 +4,18 @@ class Admin::SeasonsController < Admin::ApplicationController
   # GET /admin/seasons
   # GET /admin/seasons.json
   def index
-    @admin_seasons = Admin::Season.all
+    @admin_seasons = Season.all
   end
 
   # GET /admin/seasons/1
   # GET /admin/seasons/1.json
   def show
+    render admin_season_path
   end
 
   # GET /admin/seasons/new
   def new
-    @admin_season = Admin::Season.new
+    @admin_season = Season.new
   end
 
   # GET /admin/seasons/1/edit
@@ -24,7 +25,7 @@ class Admin::SeasonsController < Admin::ApplicationController
   # POST /admin/seasons
   # POST /admin/seasons.json
   def create
-    @admin_season = Admin::Season.new(admin_season_params)
+    @admin_season = Season.new(admin_season_params)
 
     respond_to do |format|
       if @admin_season.save
@@ -64,7 +65,7 @@ class Admin::SeasonsController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_season
-      @admin_season = Admin::Season.find(params[:id])
+      @admin_season = Season.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

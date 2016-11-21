@@ -13,6 +13,8 @@
     = render 'layouts/nav'
     = render 'layouts/messages'
     .container
-      = render 'layouts/admin_header' if admin_header?
-      = yield
+      - if admin_dashboard?
+        = render '/admin/layouts/dashboard'
+      - else
+        = yield
     = javascript_include_tag "application"

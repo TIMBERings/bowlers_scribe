@@ -4,7 +4,7 @@ class Admin::WeeksController < Admin::ApplicationController
   # GET /admin/weeks
   # GET /admin/weeks.json
   def index
-    @admin_weeks = Admin::Week.all
+    @admin_weeks = Week.all
   end
 
   # GET /admin/weeks/1
@@ -14,7 +14,7 @@ class Admin::WeeksController < Admin::ApplicationController
 
   # GET /admin/weeks/new
   def new
-    @admin_week = Admin::Week.new
+    @admin_week = Week.new
   end
 
   # GET /admin/weeks/1/edit
@@ -24,7 +24,7 @@ class Admin::WeeksController < Admin::ApplicationController
   # POST /admin/weeks
   # POST /admin/weeks.json
   def create
-    @admin_week = Admin::Week.new(admin_week_params)
+    @admin_week = Week.new(admin_week_params)
 
     respond_to do |format|
       if @admin_week.save
@@ -64,7 +64,7 @@ class Admin::WeeksController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_week
-      @admin_week = Admin::Week.find(params[:id])
+      @admin_week = Week.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

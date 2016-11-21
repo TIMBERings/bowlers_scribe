@@ -4,7 +4,7 @@ class Admin::AveragesController < Admin::ApplicationController
   # GET /admin/averages
   # GET /admin/averages.json
   def index
-    @admin_averages = Admin::Average.all
+    @admin_averages = Average.all
   end
 
   # GET /admin/averages/1
@@ -14,7 +14,7 @@ class Admin::AveragesController < Admin::ApplicationController
 
   # GET /admin/averages/new
   def new
-    @admin_average = Admin::Average.new
+    @admin_average = Average.new
   end
 
   # GET /admin/averages/1/edit
@@ -24,7 +24,7 @@ class Admin::AveragesController < Admin::ApplicationController
   # POST /admin/averages
   # POST /admin/averages.json
   def create
-    @admin_average = Admin::Average.new(admin_average_params)
+    @admin_average = Average.new(admin_average_params)
 
     respond_to do |format|
       if @admin_average.save
@@ -64,7 +64,7 @@ class Admin::AveragesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_average
-      @admin_average = Admin::Average.find(params[:id])
+      @admin_average = Average.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

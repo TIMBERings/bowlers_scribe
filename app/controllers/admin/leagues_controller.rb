@@ -4,7 +4,8 @@ class Admin::LeaguesController < Admin::ApplicationController
   # GET /admin/leagues
   # GET /admin/leagues.json
   def index
-    @admin_leagues = Admin::League.all
+    binding.pry
+    @admin_leagues = League.all
   end
 
   # GET /admin/leagues/1
@@ -14,7 +15,7 @@ class Admin::LeaguesController < Admin::ApplicationController
 
   # GET /admin/leagues/new
   def new
-    @admin_league = Admin::League.new
+    @admin_league = League.new
   end
 
   # GET /admin/leagues/1/edit
@@ -24,7 +25,7 @@ class Admin::LeaguesController < Admin::ApplicationController
   # POST /admin/leagues
   # POST /admin/leagues.json
   def create
-    @admin_league = Admin::League.new(admin_league_params)
+    @admin_league = League.new(admin_league_params)
 
     respond_to do |format|
       if @admin_league.save
@@ -64,7 +65,7 @@ class Admin::LeaguesController < Admin::ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_league
-      @admin_league = Admin::League.find(params[:id])
+      @admin_league = League.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
