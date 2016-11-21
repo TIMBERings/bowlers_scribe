@@ -13,4 +13,8 @@ module ApplicationHelper
       flash_type.to_s
     end
   end
+
+  def admin_header?
+    controller_path.include? 'admin/'
+  end
 end
