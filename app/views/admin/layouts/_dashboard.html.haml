@@ -1,0 +1,6 @@
+= render 'admin/layouts/header' if admin_dashboard?
+.row
+  .col-sm-2
+    = render 'admin/layouts/tabs' if admin_dashboard?
+  .col-sm-10
+    = yield
