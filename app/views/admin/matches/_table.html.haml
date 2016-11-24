@@ -1,0 +1,24 @@
+.table-responsive
+  %table#matches_table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Week
+        %th Left Lane
+        %th Left Team
+        %th Right Lane
+        %th Right Team
+        %th Links
+
+    %tbody
+      - @admin_matches.each do |match|
+        %tr
+          %td match.week
+          %td match.left_lane
+          %td match.left_team.name
+          %td match.right_lane
+          %td match.right_team.name
+          %td
+            .btn-group
+              = link_to 'Show', admin_match_path(match), {class: 'btn btn-success btn-sm'}
+              = link_to 'Edit', edit_admin_match_path(match), {class: 'btn btn-info btn-sm'}
+              = link_to 'Destroy', admin_match_path(match), { class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' } }

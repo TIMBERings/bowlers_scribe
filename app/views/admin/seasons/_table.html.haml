@@ -1,0 +1,26 @@
+.table-responsive
+  %table#seasons_table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Year
+        %th League
+        %th Day
+        %th Time
+        %th Links
+
+    %tbody
+      - @admin_seasons.each do |season|
+        %tr
+          %td
+            = season.year
+          %td
+            = season.league.name
+          %td
+            = season.day
+          %td
+            = season.starts_at
+          %td
+            .btn-group
+              = link_to 'Show', admin_season_path(season), {class: 'btn btn-success btn-sm'}
+              = link_to 'Edit', edit_admin_season_path(season), {class: 'btn btn-info btn-sm'}
+              = link_to 'Destroy', admin_season_path(season), {class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' }}

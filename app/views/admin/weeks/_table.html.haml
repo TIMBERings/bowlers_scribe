@@ -1,0 +1,22 @@
+.table-responsive
+  %table#weeks_table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Season
+        %th Number
+        %th Date
+        %th Links
+    %tbody
+      - @admin_weeks.each do |week|
+        %tr
+          %td
+            = "#{week.season.league.name} #{week.season.year}"
+          %td
+            = week.number
+          %td
+            = day_week_month(week.date)
+          %td
+            .btn-group
+              = link_to 'Show', admin_week_path(week), {class: 'btn btn-success btn-sm'}
+              = link_to 'Edit', edit_admin_week_path(week), {class: 'btn btn-info btn-sm'}
+              = link_to 'Destroy', admin_week_path(week), {class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' } }
