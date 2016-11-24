@@ -10,7 +10,6 @@ class Admin::SeasonsController < Admin::ApplicationController
   # GET /admin/seasons/1
   # GET /admin/seasons/1.json
   def show
-    render admin_season_path
   end
 
   # GET /admin/seasons/new

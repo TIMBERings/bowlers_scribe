@@ -15,4 +15,7 @@ class User < ApplicationRecord
   has_many :averages, foreign_key: :member_id
   has_many :games, foreign_key: :member_id
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

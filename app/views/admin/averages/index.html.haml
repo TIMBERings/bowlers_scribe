@@ -1,18 +1,6 @@
 %h1 Listing admin_averages
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @admin_averages.each do |admin_average|
-      %tr
-        %td= link_to 'Show', admin_average
-        %td= link_to 'Edit', edit_admin_average_path(admin_average)
-        %td= link_to 'Destroy', admin_average, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'table'
 
 %br
 

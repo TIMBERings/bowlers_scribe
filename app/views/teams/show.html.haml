@@ -5,7 +5,10 @@
   = @team.name
 %p
   %b User:
-  = @team.user
+  - @team.members.each do |m|
+    = @m.full_name
+    |
+    Average
 
 = link_to 'Edit', edit_team_path(@team)
 \|

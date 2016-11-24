@@ -7,4 +7,8 @@ class Team < ApplicationRecord
   def matches
     left_matches + right_matches
   end
+
+  def number_of_bowlers
+    self.members.count
+  end
 end

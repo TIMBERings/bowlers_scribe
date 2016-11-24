@@ -1,22 +1,25 @@
 %h1 Listing leagues
 
-%table
+%table.table
   %thead
     %tr
-      %th User
+      %th ID
       %th Name
-      %th
-      %th
-      %th
+      %th Manager
+      %th Links
 
   %tbody
     - @leagues.each do |league|
       %tr
-        %td= league.user
+        %td= league.id
         %td= league.name
-        %td= link_to 'Show', league
-        %td= link_to 'Edit', edit_league_path(league)
-        %td= link_to 'Destroy', league, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= league.manager.full_name
+        %td=
+          link_to 'Show', league
+          |
+          link_to 'Edit', edit_league_path(league)
+          |
+          link_to 'Destroy', league, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

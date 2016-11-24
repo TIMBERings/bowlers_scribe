@@ -1,19 +1,6 @@
 %h1 Listing admin_matches
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @admin_matches.each do |admin_match|
-      %tr
-        %td= link_to 'Show', admin_match
-        %td= link_to 'Edit', edit_admin_match_path(admin_match)
-        %td= link_to 'Destroy', admin_match, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+= render 'table'
 %br
 
 = link_to 'New Match', new_admin_match_path

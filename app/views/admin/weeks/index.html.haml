@@ -1,18 +1,6 @@
-%h1 Listing admin_weeks
+%h1 Weeks
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @admin_weeks.each do |admin_week|
-      %tr
-        %td= link_to 'Show', admin_week
-        %td= link_to 'Edit', edit_admin_week_path(admin_week)
-        %td= link_to 'Destroy', admin_week, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'table'
 
 %br
 

@@ -1,27 +1,7 @@
 %h2
   = @admin_seasons.first.league.name
   Seasons
-%table.table
-  %thead
-    %tr
-
-      %th Year
-      %th Day
-      %th Links
-
-  %tbody
-    - @admin_seasons.each do |admin_season|
-      %tr
-        %td
-          = admin_season.year
-        %td
-          = admin_season.day
-        %td
-          = link_to 'Show', admin_season
-          |
-          = link_to 'Edit', edit_admin_season_path(admin_season)
-          |
-          = link_to 'Destroy', admin_season, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'table'
 
 %br
 

@@ -17,4 +17,10 @@ module ApplicationHelper
   def admin_dashboard?
     controller_path.include? 'admin/'
   end
+
+  def day_week_month(date)
+    date.strftime('%m/%d/%Y')
+  end
+
+
 end

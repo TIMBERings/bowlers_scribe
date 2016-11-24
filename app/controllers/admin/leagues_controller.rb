@@ -4,7 +4,6 @@ class Admin::LeaguesController < Admin::ApplicationController
   # GET /admin/leagues
   # GET /admin/leagues.json
   def index
-    binding.pry
     @admin_leagues = League.all
   end
 

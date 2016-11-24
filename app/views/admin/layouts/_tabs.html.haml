@@ -1,13 +1,40 @@
-%ul.nav.nav-pills.nav-stacked
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Leagues', admin_leagues_path
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Seasons', admin_seasons_path
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Weeks', admin_weeks_path
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Matches', admin_matches_path
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Games', admin_games_path
-  %li{role: 'navigation', 'data-toggle' => 'pill'}
-    = link_to 'Teams', admin_teams_path
+/ %nav{role: 'navigation'}
+/   %ul.nav.nav-pills.nav-stacked
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Dashboard', admin_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Leagues', admin_leagues_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Seasons', admin_seasons_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Weeks', admin_weeks_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Matches', admin_matches_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Games', admin_games_path
+/     %li{'data-toggle' => 'pill'}
+/       = link_to 'Teams', admin_teams_path
+
+= current_page?('/admin') ? "> " : ''
+= link_to 'Dashboard', admin_path
+%br
+= current_page?('/admin/leagues') ? "> " : ''
+= link_to 'Leagues', admin_leagues_path
+%br
+= current_page?('/admin/seasons') ? "> " : ''
+= link_to 'Seasons', admin_seasons_path
+%br
+= current_page?('/admin/weeks') ? "> " : ''
+= link_to 'Weeks', admin_weeks_path
+%br
+= current_page?('/admin/matches') ? "> " : ''
+= link_to 'Matches', admin_matches_path
+%br
+= current_page?('/admin/games') ? "> " : ''
+= link_to 'Games', admin_games_path
+%br
+= current_page?('/admin/teams') ? "> " : ''
+= link_to 'Teams', admin_teams_path
+%br
+= current_page?('/admin/averages') ? "> " : ''
+= link_to 'Averages', admin_averages_path
