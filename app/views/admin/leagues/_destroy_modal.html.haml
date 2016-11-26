@@ -1,0 +1,18 @@
+#delete-confirm.modal.fade
+  .modal-dialog{role: 'document'}
+    .modal-content
+      .modal-header.panel-title
+        Destroy Confirmation
+        %button.close{'data-dismiss'=>'modal'}
+          %span.glyphicon.glyphicon-remove
+      .modal-body
+        Are you sure you want to destroy the league
+        %strong
+          {{name}}
+        and all seasons, weeks, matches, and games of that league? This action is permanent and cannot be undone.
+      .modal-footer
+        = link_to 'leagues/{{id}}', { class: 'btn btn-danger', :method => :delete } do
+          %span.glyphicon.glyphicon-trash
+          Destroy
+        %button.btn.btn-default{'data-dismiss' => 'modal'}
+          Cancel
