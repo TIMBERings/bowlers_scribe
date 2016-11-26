@@ -15,4 +15,5 @@
 #= require turbolinks
 #= require bootstrap-sprockets
 #= require bootstrap-table
+#= require bootstrap-select
 #= require_tree .

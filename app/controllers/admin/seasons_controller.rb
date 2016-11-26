@@ -28,7 +28,7 @@ class Admin::SeasonsController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_season.save
-        format.html { redirect_to @admin_season, notice: 'Season was successfully created.' }
+        format.html { redirect_to @admin_season, success: 'Season was successfully created.' }
         format.json { render :show, status: :created, location: @admin_season }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::SeasonsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_season.update(admin_season_params)
-        format.html { redirect_to @admin_season, notice: 'Season was successfully updated.' }
+        format.html { redirect_to @admin_season, success: 'Season was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_season }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::SeasonsController < Admin::ApplicationController
   def destroy
     @admin_season.destroy
     respond_to do |format|
-      format.html { redirect_to admin_seasons_url, notice: 'Season was successfully destroyed.' }
+      format.html { redirect_to admin_seasons_url, success: 'Season was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

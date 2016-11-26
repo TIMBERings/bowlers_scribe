@@ -1,4 +1,4 @@
-= form_for @admin_average do |f|
+= simple_form_for @admin_average do |f|
   - if @admin_average.errors.any?
     #error_explanation
       %h2= "#{pluralize(@admin_average.errors.count, "error")} prohibited this admin_average from being saved:"

@@ -28,7 +28,7 @@ class Admin::AveragesController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_average.save
-        format.html { redirect_to @admin_average, notice: 'Average was successfully created.' }
+        format.html { redirect_to @admin_average, success: 'Average was successfully created.' }
         format.json { render :show, status: :created, location: @admin_average }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::AveragesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_average.update(admin_average_params)
-        format.html { redirect_to @admin_average, notice: 'Average was successfully updated.' }
+        format.html { redirect_to @admin_average, success: 'Average was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_average }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::AveragesController < Admin::ApplicationController
   def destroy
     @admin_average.destroy
     respond_to do |format|
-      format.html { redirect_to admin_averages_url, notice: 'Average was successfully destroyed.' }
+      format.html { redirect_to admin_averages_url, success: 'Average was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

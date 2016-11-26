@@ -28,7 +28,7 @@ class Admin::MatchesController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_match.save
-        format.html { redirect_to @admin_match, notice: 'Match was successfully created.' }
+        format.html { redirect_to @admin_match, success: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @admin_match }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::MatchesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_match.update(admin_match_params)
-        format.html { redirect_to @admin_match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to @admin_match, success: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_match }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::MatchesController < Admin::ApplicationController
   def destroy
     @admin_match.destroy
     respond_to do |format|
-      format.html { redirect_to admin_matches_url, notice: 'Match was successfully destroyed.' }
+      format.html { redirect_to admin_matches_url, success: 'Match was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

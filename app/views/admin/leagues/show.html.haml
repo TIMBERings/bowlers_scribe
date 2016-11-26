@@ -1,6 +1,18 @@
 %p#notice= notice
 
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = @admin_league.name
+      .panel-body
+        .row
+          .col-sm-2
+            %label
+              Manager
+          .col-sm-6
+            = link_to @admin_league.manager.full_name, admin_user_path(@admin_league.manager)
 
-= link_to 'Edit', edit_admin_league_path(@admin_league)
-\|
-= link_to 'Back', admin_leagues_path
+= link_to 'Edit', edit_admin_league_path(@admin_league), class: 'btn btn-info'
+= link_to 'Back', admin_leagues_path, class: 'btn btn-default'

@@ -28,7 +28,7 @@ class Admin::GamesController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_game.save
-        format.html { redirect_to @admin_game, notice: 'Game was successfully created.' }
+        format.html { redirect_to @admin_game, success: 'Game was successfully created.' }
         format.json { render :show, status: :created, location: @admin_game }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::GamesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_game.update(admin_game_params)
-        format.html { redirect_to @admin_game, notice: 'Game was successfully updated.' }
+        format.html { redirect_to @admin_game, success: 'Game was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_game }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::GamesController < Admin::ApplicationController
   def destroy
     @admin_game.destroy
     respond_to do |format|
-      format.html { redirect_to admin_games_url, notice: 'Game was successfully destroyed.' }
+      format.html { redirect_to admin_games_url, success: 'Game was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

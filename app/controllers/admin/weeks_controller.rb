@@ -28,7 +28,7 @@ class Admin::WeeksController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_week.save
-        format.html { redirect_to @admin_week, notice: 'Week was successfully created.' }
+        format.html { redirect_to @admin_week, success: 'Week was successfully created.' }
         format.json { render :show, status: :created, location: @admin_week }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::WeeksController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_week.update(admin_week_params)
-        format.html { redirect_to @admin_week, notice: 'Week was successfully updated.' }
+        format.html { redirect_to @admin_week, success: 'Week was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_week }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::WeeksController < Admin::ApplicationController
   def destroy
     @admin_week.destroy
     respond_to do |format|
-      format.html { redirect_to admin_weeks_url, notice: 'Week was successfully destroyed.' }
+      format.html { redirect_to admin_weeks_url, success: 'Week was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

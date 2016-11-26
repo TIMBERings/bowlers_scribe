@@ -52,6 +52,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap-select-rails (1.6.3)
     bootstrap-table-rails (1.11.0)
     builder (3.2.2)
     byebug (9.0.6)
@@ -117,6 +118,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.2)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.4.1)
@@ -262,6 +266,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   bootstrap-sass
+  bootstrap-select-rails
   bootstrap-table-rails
   cancancan
   capybara
@@ -274,6 +279,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   letter_opener
   listen (~> 3.0.5)
   pg (~> 0.18)

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :weeks
     resources :leagues
     resources :seasons
+    resources :users
     get '/', to: 'dashboard#show'
   end
 

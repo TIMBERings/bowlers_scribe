@@ -1,40 +1,31 @@
-/ %nav{role: 'navigation'}
-/   %ul.nav.nav-pills.nav-stacked
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Dashboard', admin_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Leagues', admin_leagues_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Seasons', admin_seasons_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Weeks', admin_weeks_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Matches', admin_matches_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Games', admin_games_path
-/     %li{'data-toggle' => 'pill'}
-/       = link_to 'Teams', admin_teams_path
+/ %ul.nav.nav-pills.nav-stacked
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/dashboard') ? 'active' : nil}"}
+/     = link_to 'Dashboard', admin_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/leagues') ? 'active' : nil}"}
+/     = link_to 'Leagues', admin_leagues_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/seasons') ? 'active' : nil}"}
+/     = link_to 'Seasons', admin_seasons_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/weeks') ? 'active' : nil}"}
+/     = link_to 'Weeks', admin_weeks_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/matches') ? 'active' : nil}"}
+/     = link_to 'Matches', admin_matches_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/games') ? 'active' : nil}"}
+/     = link_to 'Games', admin_games_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/teams') ? 'active' : nil}"}
+/     = link_to 'Teams', admin_teams_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/averages') ? 'active' : nil}"}
+/     = link_to 'Averages', admin_averages_path
+/   %li{role: 'presentation', 'data-toggle' => 'pill', class: "#{ current_controller?('admin/users') ? 'active' : nil}"}
+/     = link_to 'Users', admin_users_path
 
-= current_page?('/admin') ? "> " : ''
-= link_to 'Dashboard', admin_path
-%br
-= current_page?('/admin/leagues') ? "> " : ''
-= link_to 'Leagues', admin_leagues_path
-%br
-= current_page?('/admin/seasons') ? "> " : ''
-= link_to 'Seasons', admin_seasons_path
-%br
-= current_page?('/admin/weeks') ? "> " : ''
-= link_to 'Weeks', admin_weeks_path
-%br
-= current_page?('/admin/matches') ? "> " : ''
-= link_to 'Matches', admin_matches_path
-%br
-= current_page?('/admin/games') ? "> " : ''
-= link_to 'Games', admin_games_path
-%br
-= current_page?('/admin/teams') ? "> " : ''
-= link_to 'Teams', admin_teams_path
-%br
-= current_page?('/admin/averages') ? "> " : ''
-= link_to 'Averages', admin_averages_path
+.nav
+  = link_to 'Dashboard', admin_path, {class: "btn btn-block btn-#{current_controller?('admin/dashboard') ? 'primary' : 'default'}"}
+  = link_to 'Leagues', admin_leagues_path, {class: "btn btn-block btn-#{current_controller?('admin/leagues') ? 'primary' : 'default'}"}
+  = link_to 'Seasons', admin_seasons_path, {class: "btn btn-block btn-#{current_controller?('admin/seasons') ? 'primary' : 'default'}"}
+  = link_to 'Weeks', admin_weeks_path, {class: "btn btn-block btn-#{current_controller?('admin/weeks') ? 'primary' : 'default'}"}
+  = link_to 'Matches', admin_matches_path, {class: "btn btn-block btn-#{current_controller?('admin/matches') ? 'primary' : 'default'}"}
+  = link_to 'Games', admin_games_path, {class: "btn btn-block btn-#{current_controller?('admin/games') ? 'primary' : 'default'}"}
+  = link_to 'Teams', admin_teams_path, {class: "btn btn-block btn-#{current_controller?('admin/teams') ? 'primary' : 'default'}"}
+  = link_to 'Averages', admin_averages_path, {class: "btn btn-block btn-#{current_controller?('admin/averages') ? 'primary' : 'default'}"}
+  = link_to 'Users', admin_users_path, {class: "btn btn-block btn-#{current_controller?('admin/users') ? 'primary' : 'default'}"}
+

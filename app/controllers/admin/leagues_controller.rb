@@ -1,10 +1,9 @@
 class Admin::LeaguesController < Admin::ApplicationController
   before_action :set_admin_league, only: [:show, :edit, :update, :destroy]
-
   # GET /admin/leagues
   # GET /admin/leagues.json
   def index
-    @admin_leagues = League.all
+    @admin_leagues = League.order(:id).page params[:page]
   end
 
   # GET /admin/leagues/1
@@ -14,6 +13,7 @@ class Admin::LeaguesController < Admin::ApplicationController
 
   # GET /admin/leagues/new
   def new
+    @users = User.all
     @admin_league = League.new
   end
 
@@ -28,7 +28,8 @@ class Admin::LeaguesController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_league.save
-        format.html { redirect_to @admin_league, notice: 'League was successfully created.' }
+        flash[:success] = 'League was successfully created.'
+        format.html { redirect_to admin_league_url(@admin_league) }
         format.json { render :show, status: :created, location: @admin_league }
       else
         format.html { render :new }
@@ -42,7 +43,8 @@ class Admin::LeaguesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_league.update(admin_league_params)
-        format.html { redirect_to @admin_league, notice: 'League was successfully updated.' }
+        flash[:success] = 'League was successfully updated.'
+        format.html { redirect_to admin_league_url(@admin_league) }
         format.json { render :show, status: :ok, location: @admin_league }
       else
         format.html { render :edit }
@@ -56,7 +58,8 @@ class Admin::LeaguesController < Admin::ApplicationController
   def destroy
     @admin_league.destroy
     respond_to do |format|
-      format.html { redirect_to admin_leagues_url, notice: 'League was successfully destroyed.' }
+      flash[:success] = 'League was successfully destroyed.'
+      format.html { redirect_to admin_leagues_url }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class Admin::LeaguesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_league_params
-      params.fetch(:admin_league, {})
+      params.require(:league).permit(:name, :manager_id)
     end
 end

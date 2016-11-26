@@ -1,16 +1,16 @@
 module ApplicationHelper
   def alert_class(flash_type)
     case flash_type
-    when :success
+    when 'success'
       'alert-success'
-    when :error
-      'alert-error'
-    when :alert
-      'alert-block'
-    when :notice
+    when 'error'
+      'alert-danger'
+    when 'alert'
+      'alert-warning'
+    when 'notice', 'info'
       'alert-info'
     else
-      flash_type.to_s
+      flash_type
     end
   end
 
@@ -22,5 +22,7 @@ module ApplicationHelper
     date.strftime('%m/%d/%Y')
   end
 
-
+  def current_controller?(value)
+    controller_path == value
+  end
 end

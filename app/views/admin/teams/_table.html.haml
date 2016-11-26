@@ -15,6 +15,6 @@
             = team.number_of_bowlers
           %td
             .btn-group
-              = link_to 'Show', admin_team_path(team), {class: 'btn btn-success btn-sm'}
+              = link_to 'Show', admin_team_path(team), {class: 'btn btn-primary btn-sm'}
               = link_to 'Edit', edit_admin_team_path(team), {class: 'btn btn-info btn-sm'}
               = link_to 'Destroy', admin_team_path(team), {class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' }}

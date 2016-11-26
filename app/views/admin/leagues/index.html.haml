@@ -1,7 +1,7 @@
-%h1 Listing leagues
-
-= render 'table'
+.page-header
+  = link_to 'New League', new_admin_league_path, class: 'btn btn-success pull-right'
+  %h2 Leagues
 
 %br
+= render 'table'
 
-= link_to 'New League', new_league_path
