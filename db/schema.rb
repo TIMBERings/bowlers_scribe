@@ -29,11 +29,17 @@ ActiveRecord::Schema.define(version: 20161118014346) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "match_id"
-    t.integer  "score"
+    t.integer  "scratch_total"
+    t.integer  "handicap"
+    t.integer  "total_score"
     t.date     "performed_date"
+    t.integer  "member_id"
+    t.integer  "game_number"
+    t.integer  "game_position"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["match_id"], name: "index_games_on_match_id", using: :btree
+    t.index ["member_id"], name: "index_games_on_member_id", using: :btree
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -44,17 +50,17 @@ ActiveRecord::Schema.define(version: 20161118014346) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer  "left_team_id",     null: false
-    t.integer  "right_team_id",    null: false
-    t.integer  "left_lane",        null: false
-    t.integer  "right_lane",       null: false
-    t.integer  "left_team_dues",   null: false
-    t.integer  "right_team_dues",  null: false
-    t.integer  "left_points_on",   null: false
-    t.integer  "right_points_won", null: false
+    t.integer  "left_team_id",                   null: false
+    t.integer  "right_team_id",                  null: false
+    t.integer  "left_lane",                      null: false
+    t.integer  "right_lane",                     null: false
+    t.float    "left_team_dues",                 null: false
+    t.float    "right_team_dues",                null: false
+    t.float    "left_points_won",  default: 0.0, null: false
+    t.float    "right_points_won", default: 0.0, null: false
     t.integer  "week_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["week_id"], name: "index_matches_on_week_id", using: :btree
   end
 
@@ -118,7 +124,7 @@ ActiveRecord::Schema.define(version: 20161118014346) do
   end
 
   create_table "weeks", force: :cascade do |t|
-    t.datetime "date",       null: false
+    t.date     "date",       null: false
     t.integer  "number",     null: false
     t.integer  "season_id"
     t.datetime "created_at", null: false

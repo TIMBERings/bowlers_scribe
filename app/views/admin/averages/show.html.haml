@@ -1,6 +1,40 @@
-%p#notice= notice
+.row#notice= notice
 
-
-= link_to 'Edit', edit_admin_average_path(@admin_average)
-\|
-= link_to 'Back', admin_averages_path
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = @admin_average.member.full_name
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Name
+          .col-sm-9
+            = @admin_average.member.full_name
+        .row
+          .col-sm-3
+            %label
+              Season
+          .col-sm-9
+            = @admin_average.season.full_name
+        .row
+          .col-sm-3
+            %label
+              Number of Games
+          .col-sm-9
+            = @admin_average.number_of_games
+        .row
+          .col-sm-3
+            %label
+              Total Pinfall
+          .col-sm-9
+            = @admin_average.total_pinfall
+        .row
+          .col-sm-3
+            %label
+              Average
+          .col-sm-9
+            = @admin_average.average
+= link_to 'Back', admin_averages_path, class: 'btn btn-default'

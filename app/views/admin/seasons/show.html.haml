@@ -1,27 +1,77 @@
-%p#notice= notice
+.row#notice= notice
 
-%p
-  %b League:
-  = @admin_season.league
-%p
-  %b Year:
-  = @admin_season.year
-%p
-  %b Day:
-  = @admin_season.day
-%p
-  %b Start date:
-  = @admin_season.start_date
-%p
-  %b Number of weeks:
-  = @admin_season.number_of_weeks
-%p
-  %b Roll off weeks:
-  = @admin_season.roll_off_weeks
-%p
-  %b Dates off:
-  = @admin_season.dates_off
-
-= link_to 'Edit', edit_admin_season_path(@admin_season)
-\|
-= link_to 'Back', admin_seasons_path
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = full_name
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              League
+          .col-sm-9
+            = @admin_season.league.name
+        .row
+          .col-sm-3
+            %label
+              Year
+          .col-sm-9
+            = @admin_season.year
+        .row
+          .col-sm-3
+            %label
+              Day
+          .col-sm-9
+            = @admin_season.day
+        .row
+          .col-sm-3
+            %label
+              Start date
+          .col-sm-9
+            = @admin_season.start_date
+        .row
+          .col-sm-3
+            %label
+              Number of weeks
+          .col-sm-9
+            = @admin_season.number_of_weeks
+        .row
+          .col-sm-3
+            %label
+              Roll off weeks
+          .col-sm-9
+            = @admin_season.roll_off_weeks
+        .row
+          .col-sm-3
+            %label
+              Dates off
+          .col-sm-9
+            = @admin_season.dates_off
+        .row
+          .col-sm-3
+            %label
+              Handicap base
+          .col-sm-9
+            = @admin_season.handicap_base
+        .row
+          .col-sm-3
+            %label
+              Handicap percent
+          .col-sm-9
+            = @admin_season.handicap_percent
+        .row
+          .col-sm-3
+            %label
+              Practice length
+          .col-sm-9
+            = @admin_season.practice_length
+        .row
+          .col-sm-3
+            %label
+              Starts at
+          .col-sm-9
+            = @admin_season.starts_at
+= link_to 'Edit', edit_admin_season_path(@admin_season), class: 'btn btn-info'
+= link_to 'Back', admin_seasons_path, class: 'btn btn-default'

@@ -1,6 +1,17 @@
-%p#notice= notice
+.row#notice= notice
 
-
-= link_to 'Edit', edit_admin_team_path(@admin_team)
-\|
-= link_to 'Back', admin_teams_path
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = @admin_team.name
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Captain
+          .col-sm-9
+            = @admin_team.captain.full_name
+= link_to 'Edit', edit_admin_team_path(@admin_team), class: 'btn btn-info'
+= link_to 'Back', admin_teams_path, class: 'btn btn-default'

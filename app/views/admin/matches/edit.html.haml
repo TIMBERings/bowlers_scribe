@@ -1,7 +1,17 @@
-%h1 Editing admin_match
+.page-header
+  %h2 Edit Match
 
-= render 'form'
+= simple_form_for @admin_match, url: { controller: 'matches', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_match
-\|
-= link_to 'Back', admin_matches_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = "Match #{@admin_match.id}"
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_matches_path, class: 'btn btn-default'

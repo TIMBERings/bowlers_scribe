@@ -1,7 +1,5 @@
-%h2
-  Seasons
-= render 'table'
-
+.page-header
+  = link_to 'New Season', new_admin_season_path, class: 'btn btn-success pull-right'
+  %h2 Seasons
 %br
-
-= link_to 'New Season', new_admin_season_path
+= render 'table'

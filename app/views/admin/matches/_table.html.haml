@@ -2,23 +2,35 @@
   %table#matches_table.table.table-bordered.table-hover
     %thead
       %tr
+        %th Season
         %th Week
         %th Left Lane
         %th Left Team
+        %th Left Team Dues
+        %th Left Team Points Won
         %th Right Lane
         %th Right Team
-        %th Links
+        %th Right Team Dues
+        %th Right Team Points Won
+        %th Actions
 
     %tbody
       - @admin_matches.each do |match|
         %tr
-          %td match.week
-          %td match.left_lane
-          %td match.left_team.name
-          %td match.right_lane
-          %td match.right_team.name
+          %td= match.season.full_name
+          %td= match.week.number
+          %td= match.left_lane
+          %td= match.left_team.name
+          %td= match.left_team_dues
+          %td= match.left_points_won
+          %td= match.right_lane
+          %td= match.right_team.name
+          %td= match.right_team_dues
+          %td= match.right_points_won
           %td
             .btn-group
               = link_to 'Show', admin_match_path(match), {class: 'btn btn-primary btn-sm'}
               = link_to 'Edit', edit_admin_match_path(match), {class: 'btn btn-info btn-sm'}
-              = link_to 'Destroy', admin_match_path(match), { class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' } }
+              = link_to 'Destroy', '#delete-confirm', {class: 'delete-confirm btn btn-danger btn-sm', 'data-id' => match.id, 'data-name' => "#{match.id}" }
+= paginate @admin_matches, :window => 2
+= render 'destroy_modal'

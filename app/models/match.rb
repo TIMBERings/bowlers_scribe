@@ -4,6 +4,8 @@ class Match < ApplicationRecord
   belongs_to :right_team, class_name: 'Team'
   has_many :games
 
+  delegate :season, to: :week
+
   def teams
     left_team + right_team
   end

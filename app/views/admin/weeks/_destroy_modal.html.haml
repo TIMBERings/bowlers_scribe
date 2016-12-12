@@ -1,0 +1,18 @@
+#delete-confirm.modal.fade
+  .modal-dialog{role: 'document'}
+    .modal-content
+      .modal-header.panel-title
+        Destroy Confirmation
+        %button.close{'data-dismiss'=>'modal'}
+          %span.glyphicon.glyphicon-remove
+      .modal-body
+        Are you sure you want to destroy the week
+        %strong
+          {{name}}
+        and all matches and games of that week? This action is permanent and cannot be undone.
+      .modal-footer
+        = link_to 'weeks/{{id}}', { class: 'btn btn-danger', :method => :delete } do
+          %span.glyphicon.glyphicon-trash
+          Destroy
+        %button.btn.btn-default{'data-dismiss' => 'modal'}
+          Cancel

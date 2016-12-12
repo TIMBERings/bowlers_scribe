@@ -16,4 +16,5 @@
 #= require bootstrap-sprockets
 #= require bootstrap-table
 #= require bootstrap-select
+#= require bootstrap-datepicker
 #= require_tree .

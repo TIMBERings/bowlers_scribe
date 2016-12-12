@@ -1,5 +1,13 @@
-%h1 New admin_week
+.page-header
+  %h2 New week
+= simple_form_for @admin_week, url: { controller: 'weeks', action: "create" }, html: {class: 'form-vertical'} do |f|
 
-= render 'form'
+  .panel.panel-default
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_weeks_path, class: 'btn btn-default'
 
-= link_to 'Back', admin_weeks_path

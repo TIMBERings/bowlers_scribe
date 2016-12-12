@@ -17,4 +17,6 @@
             .btn-group
               = link_to 'Show', admin_team_path(team), {class: 'btn btn-primary btn-sm'}
               = link_to 'Edit', edit_admin_team_path(team), {class: 'btn btn-info btn-sm'}
-              = link_to 'Destroy', admin_team_path(team), {class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' }}
+              = link_to 'Destroy', '#delete-confirm', {class: 'delete-confirm btn btn-danger btn-sm', 'data-id' => team.id, 'data-name' => team.name }
+= paginate @admin_teams, :window => 2
+= render 'destroy_modal'

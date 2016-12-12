@@ -1,10 +1,17 @@
-= simple_form_for @admin_team do |f|
-  - if @admin_team.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_team.errors.count, "error")} prohibited this admin_team from being saved:"
-      %ul
-        - @admin_team.errors.full_messages.each do |msg|
-          %li= msg
+- if @admin_team.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@admin_team.errors.count, "error")} prohibited this team from being saved:"
+    %ul
+      - @admin_team.errors.full_messages.each do |msg|
+        %li= msg
+.form-group.row
+  .col-sm-3
+    = f.label :name
+  .col-sm-6
+    = f.text_field :name, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :captain_id, text: 'Captain'
+  .col-sm-6
+    = f.select :captain_id, options_for_select(user_picker_values, selected_user), {}, {class: 'selectpicker', 'data-width' => '100%'}
 
-  .actions
-    = f.submit 'Save'

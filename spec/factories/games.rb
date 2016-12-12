@@ -1,7 +1,12 @@
 FactoryGirl.define do
   factory :game do
-    match nil
-    score 1
-    performed_date "2016-11-17"
+    association :match
+    scratch_total { rand(60..300) }
+    handicap { rand(0..30) }
+    total_score { scratch_total + handicap }
+    performed_date 2.days.ago
+    association :member
+    game_number { rand(1..3) }
+    game_position { rand(1..5) }
   end
 end

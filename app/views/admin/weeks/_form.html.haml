@@ -1,10 +1,26 @@
-= simple_form_for @admin_week do |f|
-  - if @admin_week.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_week.errors.count, "error")} prohibited this admin_week from being saved:"
-      %ul
-        - @admin_week.errors.full_messages.each do |msg|
-          %li= msg
+- if @admin_week.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@admin_week.errors.count, "error")} prohibited this Week from being saved:"
+    %ul
+      - @admin_week.errors.full_messages.each do |msg|
+        %li= msg
 
-  .actions
-    = f.submit 'Save'
+.form-group.row
+  .col-sm-3
+    = f.label :number
+  .col-sm-6
+    = f.select :number, options_for_select((1..40),(1..40)), {}, {class: 'selectpicker', 'data-width' => '100%'}
+
+.form-group.row
+  .col-sm-3
+    = f.label :season
+  .col-sm-6
+    = f.select :season, options_for_select(Season.all.order(:id).map(&:full_name), Season.all.order(:id).map(&:id)), {}, {class: 'selectpicker', 'data-width' => '100%'}
+
+.form-group.row
+  .col-sm-3
+    = f.label :date
+  .col-sm-6
+    = f.text_field :date, {class: 'datepicker form-control'}
+
+

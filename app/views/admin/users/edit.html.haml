@@ -1,7 +1,17 @@
-%h1 Editing admin_user
+.page-header
+  %h2 Edit User
 
-= render 'form'
+= simple_form_for @admin_user, url: { controller: 'users', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_user
-\|
-= link_to 'Back', admin_users_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = "User #{@admin_user.full_name}"
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_users_path, class: 'btn btn-default'

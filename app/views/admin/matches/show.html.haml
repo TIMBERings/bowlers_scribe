@@ -1,6 +1,70 @@
-%p#notice= notice
+.row#notice= notice
+
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = "Match #{@admin_match.id}"
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Week
+          .col-sm-9
+            = link_to @admin_match.week.number, admin_week_path(@admin_match.week)
+        .row
+          .col-sm-3
+            %label
+              Left Lane
+          .col-sm-9
+            = @admin_match.left_lane
+        .row
+          .col-sm-3
+            %label
+              Left Team
+          .col-sm-9
+            = @admin_match.left_team.name
+        .row
+          .col-sm-3
+            %label
+              Left Dues
+          .col-sm-9
+            = @admin_match.left_team_dues
+        .row
+          .col-sm-3
+            %label
+              Left Points Won
+          .col-sm-9
+            = @admin_match.left_points_won
+        .row
+          .col-sm-3
+            %label
+              Right Lane
+          .col-sm-9
+            = @admin_match.right_lane
+        .row
+          .col-sm-3
+            %label
+              Right Team
+          .col-sm-9
+            = @admin_match.right_team.name
+        .row
+          .col-sm-3
+            %label
+              Right Dues
+          .col-sm-9
+            = @admin_match.right_team_dues
+        .row
+          .col-sm-3
+            %label
+              Right Points Won
+          .col-sm-9
+            = @admin_match.right_points_won
+= link_to 'Edit', edit_admin_match_path(@admin_match), class: 'btn btn-info'
+= link_to 'Back', admin_matches_path, class: 'btn btn-default'
 
 
-= link_to 'Edit', edit_admin_match_path(@admin_match)
-\|
-= link_to 'Back', admin_matches_path
+
+
+

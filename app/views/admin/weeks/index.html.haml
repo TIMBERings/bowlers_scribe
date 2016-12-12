@@ -1,7 +1,5 @@
-%h1 Weeks
-
-= render 'table'
-
+.page-header
+  = link_to 'New Week', new_admin_week_path, class: 'btn btn-success pull-right'
+  %h2 Weeks
 %br
-
-= link_to 'New Week', new_admin_week_path
+= render 'table'

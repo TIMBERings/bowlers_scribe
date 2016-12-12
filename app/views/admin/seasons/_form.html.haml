@@ -1,10 +1,29 @@
-= simple_form_for @admin_season do |f|
-  - if @admin_season.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_season.errors.count, "error")} prohibited this admin_season from being saved:"
-      %ul
-        - @admin_season.errors.full_messages.each do |msg|
-          %li= msg
+- if @admin_season.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@admin_season.errors.count, "error")} prohibited this Season from being saved:"
+    %ul
+      - @admin_season.errors.full_messages.each do |msg|
+        %li= msg
 
-  .actions
-    = f.submit 'Save'
+.form-group.row
+  .col-sm-3
+    = f.label :league_id, text: 'League'
+  .col-sm-6
+    = f.select :league_id, options_for_select(league_picker_values, selected_league), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :year, text: 'Starting Year'
+  .col-sm-6
+    = f.select :year, options_for_select(years, selected_year), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :day, text: 'Day'
+  .col-sm-6
+    = f.select :day, options_for_select(days_of_the_week, selected_day), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :name
+  .col-sm-6
+    = f.text_field :name, class: 'form-control'
+
+

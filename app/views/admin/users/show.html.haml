@@ -1,15 +1,36 @@
 %p#notice= notice
 
-%p
-  %b First name:
-  = @admin_user.first_name
-%p
-  %b Last name:
-  = @admin_user.last_name
-%p
-  %b Email:
-  = @admin_user.email
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = "User #{@admin_user.id}"
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Name
+          .col-sm-6
+            = @admin_user.season.full_name
+        .row
+          .col-sm-3
+            %label
+              USBC Number
+          .col-sm-6
+            = @admin_user.usbc_number
+        .row
+          .col-sm-3
+            %label
+              Email
+          .col-sm-6
+            = @admin_user.email
+        .row
+          .col-sm-3
+            %label
+              Birth Date
+          .col-sm-6
+            = date_format(@admin_user.birth_date)
 
-= link_to 'Edit', edit_admin_user_path(@admin_user)
-\|
-= link_to 'Back', admin_users_path
+= link_to 'Edit', edit_admin_user_path(@admin_user), class: 'btn btn-info'
+= link_to 'Back', admin_users_path, class: 'btn btn-default'

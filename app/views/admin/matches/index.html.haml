@@ -1,6 +1,5 @@
-%h1 Listing admin_matches
-
-= render 'table'
+.page-header
+  = link_to 'New Match', new_admin_match_path, class: 'btn btn-success pull-right'
+  %h2 Matches
 %br
-
-= link_to 'New Match', new_admin_match_path
+= render 'table'

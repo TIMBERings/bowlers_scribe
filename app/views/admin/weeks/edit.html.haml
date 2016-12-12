@@ -1,7 +1,17 @@
-%h1 Editing admin_week
+.page-header
+  %h2 Edit Week
 
-= render 'form'
+= simple_form_for @admin_week, url: { controller: 'weeks', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_week
-\|
-= link_to 'Back', admin_weeks_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = "Week #{@admin_week.id}"
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_weeks_path, class: 'btn btn-default'

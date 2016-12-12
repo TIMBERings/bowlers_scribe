@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @admin_users = User.all
+    @admin_users = User.order(:id).page params[:page]
   end
 
   # GET /admin/users/1

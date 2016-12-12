@@ -1,10 +1,49 @@
-= simple_form_for @admin_game do |f|
-  - if @admin_game.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_game.errors.count, "error")} prohibited this admin_game from being saved:"
-      %ul
-        - @admin_game.errors.full_messages.each do |msg|
-          %li= msg
+- if @admin_game.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@admin_game.errors.count, "error")} prohibited this Game from being saved:"
+    %ul
+      - @admin_game.errors.full_messages.each do |msg|
+        %li= msg
 
-  .actions
-    = f.submit 'Save'
+.form-group.row
+  .col-sm-3
+    = f.label :match_id, text: 'Match'
+  .col-sm-6
+    = f.select :match_id, options_for_select([[],[]], nil), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :member_id, text: 'Starting Year'
+  .col-sm-6
+    = f.select :member_id, options_for_select(user_picker_values, selected_user), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :scratch_total
+  .col-sm-6
+    = f.text_field :scratch_total, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :handicap
+  .col-sm-6
+    = f.text_field :handicap, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :total_score
+  .col-sm-6
+    = f.text_field :total_score, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :game_number
+  .col-sm-6
+    = f.text_field :game_number, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :game_position
+  .col-sm-6
+    = f.text_field :game_position, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :performed_date
+  .col-sm-6
+    = f.text_field :performed_date, {class: 'datepicker form-control'}
+
+

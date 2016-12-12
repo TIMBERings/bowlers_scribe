@@ -1,7 +1,17 @@
-%h1 Editing admin_team
+.page-header
+  %h2 Edit Team
 
-= render 'form'
+= simple_form_for @admin_team, url: { controller: 'teams', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_team
-\|
-= link_to 'Back', admin_teams_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = @admin_team.name
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_teams_path, class: 'btn btn-default'

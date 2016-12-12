@@ -4,7 +4,7 @@ class Admin::WeeksController < Admin::ApplicationController
   # GET /admin/weeks
   # GET /admin/weeks.json
   def index
-    @admin_weeks = Week.all
+    @admin_weeks = Week.order(:id).page params[:page]
   end
 
   # GET /admin/weeks/1

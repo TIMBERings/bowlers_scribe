@@ -1,7 +1,17 @@
-%h1 Editing admin_season
+.page-header
+  %h2 Edit Season
 
-= render 'form'
+= simple_form_for @admin_season, url: { controller: 'seasons', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_season
-\|
-= link_to 'Back', admin_seasons_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = full_name
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_seasons_path, class: 'btn btn-default'

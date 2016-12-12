@@ -1,6 +1,62 @@
 %p#notice= notice
 
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = "Game #{@admin_game.id}"
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Match
+          .col-sm-6
+            = link_to @admin_game.match.id, admin_match_path(@admin_game.match)
+        .row
+          .col-sm-3
+            %label
+              Bowler
+          .col-sm-6
+            = link_to @admin_game.member.full_name, admin_user_path(@admin_game.member)
 
-= link_to 'Edit', edit_admin_game_path(@admin_game)
-\|
-= link_to 'Back', admin_games_path
+        .row
+          .col-sm-3
+            %label
+              Scratch Total
+          .col-sm-6
+            = @admin_game.scratch_total
+
+        .row
+          .col-sm-3
+            %label
+              Handicap
+          .col-sm-6
+            = @admin_game.handicap
+        .row
+          .col-sm-3
+            %label
+              Game Total
+          .col-sm-6
+            = @admin_game.total_score
+        .row
+          .col-sm-3
+            %label
+              Game Number
+          .col-sm-6
+            = @admin_game.game_number
+        .row
+          .col-sm-3
+            %label
+              Game Position
+          .col-sm-6
+            = @admin_game.game_position
+        .row
+          .col-sm-3
+            %label
+              Date
+          .col-sm-6
+            = date_format(@admin_game.performed_date)
+
+= link_to 'Edit', edit_admin_game_path(@admin_game), class: 'btn btn-info'
+= link_to 'Back', admin_games_path, class: 'btn btn-default'

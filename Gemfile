@@ -37,6 +37,7 @@ gem 'autoprefixer-rails'
 gem 'pry-rails'
 gem 'bootstrap-table-rails'
 gem 'bootstrap-select-rails'
+gem 'bootstrap-datepicker-rails'
 gem 'kaminari'
 
 group :development, :test do

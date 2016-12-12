@@ -4,7 +4,7 @@ class Admin::SeasonsController < Admin::ApplicationController
   # GET /admin/seasons
   # GET /admin/seasons.json
   def index
-    @admin_seasons = Season.all
+    @admin_seasons = Season.order(:id).page params[:page]
   end
 
   # GET /admin/seasons/1

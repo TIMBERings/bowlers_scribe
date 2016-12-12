@@ -2,25 +2,36 @@
   %table#seasons_table.table.table-bordered.table-hover
     %thead
       %tr
-        %th Year
+        %th ID
         %th League
+        %th Year
         %th Day
-        %th Time
+        %th Start Date
+        %th Number of Weeks
+        %th Handicap Base
+        %th Handicap Percent
+        %th Practice Length
+        %th Location
         %th Links
+
 
     %tbody
       - @admin_seasons.each do |season|
         %tr
-          %td
-            = season.year
-          %td
-            = season.league.name
-          %td
-            = season.day
-          %td
-            = season.starts_at
+          %td= season.id
+          %td= season.league.name
+          %td= season.year
+          %td= season.day
+          %td= season.start_date
+          %td= season.number_of_weeks
+          %td= season.handicap_base
+          %td= season.handicap_percent
+          %td= season.practice_length
+          %td= season.location
           %td
             .btn-group
               = link_to 'Show', admin_season_path(season), {class: 'btn btn-primary btn-sm'}
               = link_to 'Edit', edit_admin_season_path(season), {class: 'btn btn-info btn-sm'}
-              = link_to 'Destroy', admin_season_path(season), {class: 'btn btn-danger btn-sm', :method => :delete, :data => { :confirm => 'Are you sure?' }}
+              = link_to 'Destroy', '#delete-confirm', {class: 'delete-confirm btn btn-danger btn-sm', 'data-id' => season.id, 'data-name' => "#{season.league.name} #{season.year}" }
+= paginate @admin_seasons, :window => 2
+= render 'destroy_modal'

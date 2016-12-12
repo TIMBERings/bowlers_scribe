@@ -4,7 +4,7 @@ class Admin::TeamsController < Admin::ApplicationController
   # GET /admin/teams
   # GET /admin/teams.json
   def index
-    @admin_teams = Team.all
+    @admin_teams = Team.order(:id).page params[:page]
   end
 
   # GET /admin/teams/1
@@ -28,7 +28,8 @@ class Admin::TeamsController < Admin::ApplicationController
 
     respond_to do |format|
       if @admin_team.save
-        format.html { redirect_to @admin_team, success: 'Team was successfully created.' }
+        flash[:success] = 'Team was successfully created.'
+        format.html { redirect_to admin_team_url(@admin_team) }
         format.json { render :show, status: :created, location: @admin_team }
       else
         format.html { render :new }
@@ -42,7 +43,9 @@ class Admin::TeamsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @admin_team.update(admin_team_params)
-        format.html { redirect_to @admin_team, success: 'Team was successfully updated.' }
+                flash[:success] = 'Team was successfully updated.'
+
+        format.html { redirect_to admin_team_url(@admin_team) }
         format.json { render :show, status: :ok, location: @admin_team }
       else
         format.html { render :edit }
@@ -69,6 +72,6 @@ class Admin::TeamsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_team_params
-      params.fetch(:admin_team, {})
+      params.require(:team).permit(:name, :captain_id)
     end
 end

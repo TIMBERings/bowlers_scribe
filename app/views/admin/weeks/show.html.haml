@@ -1,6 +1,30 @@
 %p#notice= notice
 
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          = "Week #{@admin_week.id}"
+      .panel-body
+        .row
+          .col-sm-3
+            %label
+              Season
+          .col-sm-6
+            = @admin_week.season.full_name
+        .row
+          .col-sm-3
+            %label
+              Number
+          .col-sm-6
+            = @admin_week.number
+        .row
+          .col-sm-3
+            %label
+              Date
+          .col-sm-6
+            = date_format(@admin_week.date)
 
-= link_to 'Edit', edit_admin_week_path(@admin_week)
-\|
-= link_to 'Back', admin_weeks_path
+= link_to 'Edit', edit_admin_week_path(@admin_week), class: 'btn btn-info'
+= link_to 'Back', admin_weeks_path, class: 'btn btn-default'

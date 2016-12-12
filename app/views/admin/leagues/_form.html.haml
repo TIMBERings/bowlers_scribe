@@ -1,17 +1,17 @@
 - if @admin_league.errors.any?
   #error_explanation
-    %h2= "#{pluralize(@admin_league.errors.count, "error")} prohibited this admin_league from being saved:"
+    %h2= "#{pluralize(@admin_league.errors.count, "error")} prohibited this League from being saved:"
     %ul
       - @admin_league.errors.full_messages.each do |msg|
         %li= msg
 .form-group.row
-  .col-sm-2
+  .col-sm-3
     = f.label :name
   .col-sm-6
     = f.text_field :name, class: 'form-control'
 .form-group.row
-  .col-sm-2
+  .col-sm-3
     = f.label :manager_id, text: 'Manager'
   .col-sm-6
-    = f.select :manager_id, options_from_collection_for_select(User.all, :id, :full_name), {}, {class: 'selectpicker', 'data-width' => '100%'}
+    = f.select :manager_id, options_for_select(manager_picker_values, selected_manager), {}, {class: 'selectpicker', 'data-width' => '100%'}
 

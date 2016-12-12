@@ -4,7 +4,7 @@ class Admin::GamesController < Admin::ApplicationController
   # GET /admin/games
   # GET /admin/games.json
   def index
-    @admin_games = Game.all
+    @admin_games = Game.order(:id).page params[:page]
   end
 
   # GET /admin/games/1

@@ -1,7 +1,17 @@
-%h1 Editing admin_game
+.page-header
+  %h2 Edit Game
 
-= render 'form'
+= simple_form_for @admin_game, url: { controller: 'games', action: "update" }, html: {class: 'form-vertical', method: :patch} do |f|
 
-= link_to 'Show', @admin_game
-\|
-= link_to 'Back', admin_games_path
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        %h4
+          = "Game #{@admin_game.id}"
+    .panel-body
+      = render 'form', f: f
+  .actions
+    = button_tag type: 'submit', class: 'btn btn-success' do
+      %span.glyphicon.glyphicon-edit
+      Save
+    = link_to 'Cancel', admin_games_path, class: 'btn btn-default'

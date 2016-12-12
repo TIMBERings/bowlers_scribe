@@ -4,7 +4,7 @@ class Admin::MatchesController < Admin::ApplicationController
   # GET /admin/matches
   # GET /admin/matches.json
   def index
-    @admin_matches = Match.all
+    @admin_matches = Match.order(:id).page params[:page]
   end
 
   # GET /admin/matches/1

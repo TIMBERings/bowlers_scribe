@@ -1,10 +1,46 @@
-= simple_form_for @admin_match do |f|
-  - if @admin_match.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@admin_match.errors.count, "error")} prohibited this admin_match from being saved:"
-      %ul
-        - @admin_match.errors.full_messages.each do |msg|
-          %li= msg
-
-  .actions
-    = f.submit 'Save'
+- if @admin_match.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@admin_match.errors.count, "error")} prohibited this Match from being saved:"
+    %ul
+      - @admin_match.errors.full_messages.each do |msg|
+        %li= msg
+.form-group.row
+  .col-sm-3
+    = f.label :left_lane
+  .col-sm-6
+    = f.select :left_lane, options_for_select((1..48),(1..48)), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :right_lane
+  .col-sm-6
+    = f.select :right_lane, options_for_select((1..48),(1..48)), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :left_team
+  .col-sm-6
+    = f.select :left_team, options_for_select([],[]), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :right_team
+  .col-sm-6
+    = f.select :right_team, options_for_select([],[]), {}, {class: 'selectpicker', 'data-width' => '100%'}
+.form-group.row
+  .col-sm-3
+    = f.label :right_team_dues
+  .col-sm-6
+    = f.text_field :right_team_dues, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :left_team_dues
+  .col-sm-6
+    = f.text_field :left_team_dues, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :right_points_won
+  .col-sm-6
+    = f.text_field :right_points_won, class: 'form-control'
+.form-group.row
+  .col-sm-3
+    = f.label :left_points_won
+  .col-sm-6
+    = f.text_field :left_team_dues, class: 'form-control'
