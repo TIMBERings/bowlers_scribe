@@ -1,0 +1,2 @@
+module Wizards::LeaguesHelper
+end

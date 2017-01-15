@@ -1,1 +1,8 @@
-dashboard show
+.page-header
+  %h2 Bowler's Scribe Dashboard
+
+.row
+  .col-sm-6
+    = link_to 'Create League', new_wizards_leagues_league_path, class: 'btn btn-success'
+  .col-sm-6
+    = link_to 'Create Season', '#', class: 'btn btn-success'

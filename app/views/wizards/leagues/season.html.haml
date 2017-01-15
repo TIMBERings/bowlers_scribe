@@ -1,0 +1,29 @@
+.page-header
+  %h2 Season Information
+
+= simple_form_for @form, url: wizard_path, html: {class: 'form-vertical'} do |f|
+  - if @form.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@form.errors.count, "error")} prohibited this Season from being saved:"
+      %ul
+        - @form.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    .col-sm-3
+      = f.label :year, text: 'Starting Year'
+    .col-sm-6
+      = f.select :year, options_for_select(years, selected_year), {}, {class: 'selectpicker', 'data-width' => '100%'}
+  .form-group.row
+    .col-sm-3
+      = f.label :day, text: 'Day'
+    .col-sm-6
+      = f.select :day, options_for_select(days_of_the_week, selected_day), {}, {class: 'selectpicker', 'data-width' => '100%'}
+  .form-group.row
+    .col-sm-3
+      = f.label :name
+    .col-sm-6
+      = f.text_field :name, class: 'form-control'
+
+  =link_to 'Previous', previous_wizard_path, class: 'btn btn-primary'
+  = f.submit 'Continue', class: 'btn btn-success'

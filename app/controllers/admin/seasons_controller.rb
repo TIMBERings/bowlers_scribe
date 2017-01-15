@@ -69,6 +69,6 @@ class Admin::SeasonsController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_season_params
-      params.fetch(:admin_season, {})
+      params.require(:season).permit(:id, :league_id, :year, :day, :start_date, :number_of_weeks, :roll_off_weeks, :dates_off, :handicap_base, :handicap_percent, :location, :practice_length, :starts_at)
     end
 end

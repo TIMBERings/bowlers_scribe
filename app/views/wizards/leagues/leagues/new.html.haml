@@ -1,0 +1,23 @@
+.page-header
+  %h2 League Information
+
+= simple_form_for @league, url: { controller: 'wizards/leagues/leagues', action: 'create'}, html: {class: 'form-vertical'} do |f|
+  - if @league.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@league.errors.count, "error")} prohibited this League from being saved:"
+      %ul
+        - @league.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    .col-sm-3
+      = f.label :name
+    .col-sm-6
+      = f.text_field :name, class: 'form-control'
+  .form-group.row
+    .col-sm-3
+      = f.label :manager_id, text: 'Manager'
+    .col-sm-6
+      = f.select :manager_id, options_for_select(manager_picker_values, selected_manager), {}, {class: 'selectpicker', 'data-width' => '100%'}
+
+  = f.submit 'Continue', class: 'btn btn-success'

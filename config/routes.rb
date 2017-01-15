@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :wizards do
+    namespace :leagues do
+      get 'leagues/new'
+    end
+  end
+
+  namespace :wizards do
+    namespace :leagues do
+      get 'leagues/create'
+    end
+  end
+
   devise_for :users
 
   root to: 'home#index'
@@ -13,6 +25,14 @@ Rails.application.routes.draw do
     resources :seasons
     resources :users
     get '/', to: 'dashboard#show'
+  end
+
+  namespace :wizards do
+    namespace :leagues do
+      resources :leagues, only: [:new, :create]
+      resources :seasons, only: [:new, :create]
+      resources :teams, only: [:new, :create]
+    end
   end
 
   resources :leagues
